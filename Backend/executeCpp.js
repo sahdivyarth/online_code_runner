@@ -9,11 +9,11 @@ if (!fs.existsSync(outputPath)) {
 
 const executeCpp = ([filepath, inputFilePath]) => {
     const jobId = path.basename(filepath).split(".")[0];
-    const outPath = path.join(outputPath, `${jobId}.out`);
-    // console.log(inputFilePath);
+    const outPath = path.join(outputPath, `${jobId}.exe`); // Change to .exe
+    
     return new Promise((resolve, reject) => {
         exec(
-            `g++ -std=c++14 -DLOCAL_MACHINE ${filepath} -o ${outPath} && cd ${outputPath} && ./${jobId}.out < ${inputFilePath}`,
+            `g++ -std=c++14 ${filepath} -o ${outPath} && ${outPath} < ${inputFilePath}`,
             (error, stdout, stderr) => {
                 if (error) reject({ error, stderr });
                 if (stderr) reject({ stderr });
