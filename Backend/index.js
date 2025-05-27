@@ -48,7 +48,6 @@ app.get("/status", async (req, res) => {
             .json({ success: false, error: JSON.stringify(err) });
     }
 });
-
 app.post("/run", async (req, res) => {
     const { language = "python", code, input = "" } = req.body;
     if (code === undefined) {
@@ -56,9 +55,7 @@ app.post("/run", async (req, res) => {
             .status(400)
             .json({ success: false, error: "Empty code body" });
     }
-
     let job;
-
     try {
         // generate c++ file with content from request
         const files = await generateFile(language, code, input);
@@ -82,5 +79,4 @@ app.post("/run", async (req, res) => {
 app.listen(5000, () => {
     console.log("Listening on port 5000");
 });
-
 // http://localhost:5000/run
