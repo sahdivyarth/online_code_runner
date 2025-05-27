@@ -15,7 +15,7 @@ if (!fs.existsSync(inputFiles)) {
 const languageFileExtension = {
     cpp: "cpp",
     python: "py",
-    py: "py",
+    
 };
 
 const generateFile = async (language, code, input) => {
