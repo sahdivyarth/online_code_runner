@@ -33,7 +33,7 @@ const JobSchema = mongoose.Schema({
         enum: ["Running", "Success", "Error"],
     },
 });
-
+// model to retrive data to mongodb
 const Job = new mongoose.model("job", JobSchema);
 
 module.exports = Job;
