@@ -5,7 +5,7 @@ const { executePython } = require("./executePython");
 
 const jobQueue = new Queue("job-queue");
 
-const WORKERS = 5;
+const WORKERS = 6;
 
 jobQueue.process(WORKERS, async ({ data }) => {
     // console.log(data);
